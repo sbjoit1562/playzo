@@ -1,3 +1,230 @@
-<html>
-    Welcome to Playzo.live
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayZO - Skill Based Opinion Trading Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff2d55;
+            --secondary: #222;
+            --accent: #00bfae;
+            --bg: #fff;
+            --text: #222;
+            --card: #f7f8fa;
+            --shadow: 0 2px 16px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: #fff;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px #ffe3ec;
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+            position: absolute;
+            left: 0; bottom: -4px;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .cta-btn {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,191,174,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-left: 1.5rem;
+        }
+        .cta-btn:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(255,45,85,0.12);
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            padding: 2rem 1rem 1rem 1rem;
+        }
+        .hero {
+            text-align: left;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1 1 350px;
+        }
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.7rem;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            letter-spacing: 2px;
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        .hero-img {
+            flex: 1 1 300px;
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-img-placeholder {
+            width: 260px;
+            height: 260px;
+            background: linear-gradient(135deg, #e0f7fa 60%, #ffe3ec 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 4px 32px rgba(0,191,174,0.08);
+        }
+        section {
+            background: var(--card);
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            padding: 1.2rem 1.5rem;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: var(--shadow);
+        }
+        section h2 {
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 0;
+        }
+        a {
+            color: var(--primary);
+        }
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .hero-content, .hero-img {
+                flex: 1 1 100%;
+                min-width: 0;
+            }
+        }
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1rem 0.5rem 1rem;
+            }
+            nav {
+                margin-top: 0.7rem;
+                gap: 1rem;
+            }
+            .cta-btn {
+                margin-left: 0;
+                margin-top: 0.7rem;
+            }
+            main {
+                padding: 1rem 0.2rem;
+            }
+            section {
+                padding: 1rem 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PlayZO</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy Policy</a>
+        </nav>
+        <button class="cta-btn" onclick="window.open('https://playzo.live/download', '_blank')">Download App</button>
+    </header>
+    <main>
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-title">Skill-Based Opinion Trading Game</div>
+                <div class="hero-desc">
+                    Predict, play, and profit! PlayZO lets you trade your opinions on trending topics, sports, and more. Compete with others, climb the leaderboard, and win real rewards. Are you ready to play with your mind?
+                </div>
+                <button class="cta-btn" onclick="window.open('https://playzo.live/download', '_blank')">Download the App</button>
+            </div>
+            <div class="hero-img">
+                <div class="hero-img-placeholder">
+                    🎮
+                </div>
+            </div>
+        </div>
+        <section id="about">
+            <h2>About PlayZO</h2>
+            <p>PlayZO is a next-gen, skill-based opinion trading platform where your insights and predictions can earn you rewards. Engage in real-time opinion markets, challenge your friends, and showcase your prediction skills in a fun, competitive environment!</p>
+        </section>
+        <section id="terms">
+            <h2>Terms & Conditions</h2>
+            <p>By using PlayZO, you agree to abide by our fair play policies and community guidelines. All users must be 18+ and comply with local laws. For full terms, visit <a href="https://playzo.live/terms" target="_blank">our Terms page</a>.</p>
+        </section>
+        <section id="privacy">
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. PlayZO does not share your personal data with third parties without consent. For more details, see <a href="https://playzo.live/privacy" target="_blank">our Privacy Policy</a>.</p>
+        </section>
+    </main>
+</body>
 </html>
